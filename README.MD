@@ -9,7 +9,8 @@ pnpm run dev
 
 ### ИЛИ
 
-https://film-search-i9ulrze2a-tom4ikss-projects.vercel.app/
+https://film-search-six.vercel.app
+
 
 попозже сменю тут токен в верселе чтобы пожил подольше
 
