@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://api.kinopoisk.dev/v1.4/$1"
+    }
+  ]
+}
