@@ -1,5 +1,5 @@
 import type { Movie } from "../model/movie";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Box,
   Grid,
@@ -11,14 +11,17 @@ import {
 } from '@mui/material';
 import { FavoriteButton } from '@/widgets/favorite-button/ui';
 
-export const FavoriteMovieCard = ({movie}: {movie: Movie}) => ( <Grid key={movie.id} size={{xs:6, md: 3}}>
+export const FavoriteMovieCard = ({movie}: {movie: Movie}) => { 
+        const location = useLocation()
+
+        return <Grid key={movie.id} size={{xs:6, md: 3}}>
               <Card
                 elevation={3}
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
               >
                 <Box
                   component={Link}
-                  to={`/movies/${movie.id}`}
+                  to={`/movies/${movie.id}${location.search}`}
                   sx={{ textDecoration: 'none', flexGrow: 1 }}
                 >
                   <CardMedia
@@ -52,4 +55,5 @@ export const FavoriteMovieCard = ({movie}: {movie: Movie}) => ( <Grid key={movie
                   <FavoriteButton movie={movie} />
                 </CardActions>
               </Card>
-            </Grid>)
+            </Grid>
+}

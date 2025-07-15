@@ -6,8 +6,8 @@ export const AppProviders = () => {
   return (
     <MUIThemeProvider>
       <QueryProvider>
-        <AppRouter>
-        </AppRouter>
+          <AppRouter>
+          </AppRouter>
       </QueryProvider>
     </MUIThemeProvider>
   );

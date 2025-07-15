@@ -11,7 +11,6 @@ import { scrollBar } from '@/shared/theme';
 import { useFilters } from '@/features/filters';
 
 
-
 export const MoviesVirtualList = ({ itemHeight = 260 }) => {
 
   const { filters } = useFilters()
@@ -92,7 +91,6 @@ export const MoviesVirtualList = ({ itemHeight = 260 }) => {
         </Typography>
       </Box>
     );
-
   return (
     <Box sx={{ height: '100%', width: '100%', ...scrollBar }}>
       <AutoSizer>
