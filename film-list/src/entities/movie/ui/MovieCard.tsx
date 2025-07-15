@@ -1,4 +1,4 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import {
   Card,
   CardActionArea,
@@ -10,8 +10,11 @@ import {
 import type { Movie } from '../model/movie';
 import { FavoriteButton } from '@/widgets/favorite-button/ui';
 
-export const MovieCard = ({ movie }: { movie: Movie }) => (
-  <Card
+export const MovieCard = ({ movie }: { movie: Movie }) => {
+
+  const location = useLocation()
+
+  return <Card
     elevation={3}
     sx={{
       height: '98%',
@@ -23,7 +26,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => (
   >
     <CardActionArea
       component={RouterLink}
-      to={`/movies/${movie.id}`}
+      to={`/movies/${movie.id}${location.search}`}
       sx={{
         display: 'flex',
         gap: 2,
@@ -69,4 +72,4 @@ export const MovieCard = ({ movie }: { movie: Movie }) => (
       <FavoriteButton movie={movie} />
     </Box>
   </Card>
-);
+};
