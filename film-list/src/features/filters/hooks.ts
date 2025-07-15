@@ -25,6 +25,10 @@ export function filtersToSearchParams(filters: MoviesFilter): URLSearchParams {
   if(candidate.rating && candidate.rating[1] === 10) {
     candidate.rating = [candidate.rating[0], 9.9]
   }
+
+  if(candidate.year && candidate.year[0] < 1950) {
+    candidate.year = [1950, candidate.year[1]]
+  }
   
   const result = MoviesFilterSchema.safeParse(candidate)
 
