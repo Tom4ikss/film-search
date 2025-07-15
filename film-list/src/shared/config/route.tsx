@@ -1,4 +1,4 @@
-import { GlobalError } from '@/app/providers/ui/GlobalError';
+import { GlobalError } from '@/shared/config/ErrorElement/GlobalError';
 import { favoritesRoute } from '@/pages/favorites/route';
 import { movieDetailRoute } from '@/pages/movie-detail/route';
 import { moviesListRoute } from '@/pages/movies-list/route';
