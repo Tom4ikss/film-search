@@ -7,10 +7,10 @@ import {
   Button,
   Slide,
   type SlideProps,
-} from '@mui/material';
-import { forwardRef } from 'react';
-import type { Movie } from '@/entities/movie/model/movie';
-import { useFavoritesStore } from '@/shared/store/favoritesStore';
+} from "@mui/material";
+import { forwardRef } from "react";
+import type { Movie } from "@/entities/movie/model/movie";
+import { useFavoritesStore } from "@/shared/store/favoritesStore";
 
 /* анимация «вылет снизу» */
 const Transition = forwardRef(function Transition(props: SlideProps, ref) {
@@ -30,20 +30,21 @@ export function ConfirmFavoriteDialog({
   onConfirm,
   onClose,
 }: ConfirmFavoriteDialogProps) {
- 
-   const isFavorite = useFavoritesStore((s) => s.isFavorite(String(movie.id)));
-   const add = useFavoritesStore((s) => s.addFavorite);
-   const remove = useFavoritesStore((s) => s.removeFavorite);
+  const isFavorite = useFavoritesStore((s) => s.isFavorite(String(movie.id)));
+  const add = useFavoritesStore((s) => s.addFavorite);
+  const remove = useFavoritesStore((s) => s.removeFavorite);
 
   return (
     <Dialog
       open={open}
-      slots={{transition: Transition}}
+      slots={{ transition: Transition }}
       keepMounted
       onClose={onClose}
       aria-describedby="confirm-favorite-description"
     >
-      <DialogTitle>{isFavorite ? 'Удалить из избранного?' : 'Добавить в избранное?'}</DialogTitle>
+      <DialogTitle>
+        {isFavorite ? "Удалить из избранного?" : "Добавить в избранное?"}
+      </DialogTitle>
 
       <DialogContent>
         <DialogContentText id="confirm-favorite-description">
@@ -55,13 +56,16 @@ export function ConfirmFavoriteDialog({
 
       <DialogActions>
         <Button onClick={onClose}>Отмена</Button>
-        <Button variant="contained" onClick={() => {
-            if(isFavorite) remove(String(movie.id))
-            else add(movie)
-            if(onConfirm) onConfirm()
-            if(onClose) onClose()
-        }}>
-          {isFavorite ? 'Удалить' : 'Добавить' }
+        <Button
+          variant="contained"
+          onClick={() => {
+            if (isFavorite) remove(String(movie.id));
+            else add(movie);
+            if (onConfirm) onConfirm();
+            if (onClose) onClose();
+          }}
+        >
+          {isFavorite ? "Удалить" : "Добавить"}
         </Button>
       </DialogActions>
     </Dialog>

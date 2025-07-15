@@ -1,11 +1,10 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from "@mui/material";
 
 export const GlobalError = () => {
-
   const onClick = () => {
-    sessionStorage.clear()
-    location.reload()
-  }
+    sessionStorage.clear();
+    location.reload();
+  };
   return (
     <Box
       display="flex"
@@ -20,28 +19,24 @@ export const GlobalError = () => {
         elevation={3}
         sx={{
           maxWidth: 500,
-          width: '100%',
+          width: "100%",
           p: 4,
           borderRadius: 2,
-          textAlign: 'center',
+          textAlign: "center",
         }}
       >
-        <Typography variant="h4" gutterBottom color='secondary'>
+        <Typography variant="h4" gutterBottom color="secondary">
           Упс… Что-то пошло не так
         </Typography>
 
         <Typography variant="body1" gutterBottom>
           Обновите страницу или вернитесь позже.
-      </Typography>
+        </Typography>
 
-        <Button
-          variant="contained"
-          onClick={onClick}
-          sx={{ mt: 2 }}
-        >
+        <Button variant="contained" onClick={onClick} sx={{ mt: 2 }}>
           Обновить
         </Button>
       </Paper>
     </Box>
   );
-}
+};

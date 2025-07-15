@@ -1,138 +1,138 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 const genres = [
   {
-    "name": "аниме",
-    "slug": "anime"
+    name: "аниме",
+    slug: "anime",
   },
   {
-    "name": "биография",
-    "slug": "biografiya"
+    name: "биография",
+    slug: "biografiya",
   },
   {
-    "name": "боевик",
-    "slug": "boevik"
+    name: "боевик",
+    slug: "boevik",
   },
   {
-    "name": "вестерн",
-    "slug": "vestern"
+    name: "вестерн",
+    slug: "vestern",
   },
   {
-    "name": "военный",
-    "slug": "voennyy"
+    name: "военный",
+    slug: "voennyy",
   },
   {
-    "name": "детектив",
-    "slug": "detektiv"
+    name: "детектив",
+    slug: "detektiv",
   },
   {
-    "name": "детский",
-    "slug": "detskiy"
+    name: "детский",
+    slug: "detskiy",
   },
   {
-    "name": "для взрослых",
-    "slug": "dlya-vzroslyh"
+    name: "для взрослых",
+    slug: "dlya-vzroslyh",
   },
   {
-    "name": "документальный",
-    "slug": "dokumentalnyy"
+    name: "документальный",
+    slug: "dokumentalnyy",
   },
   {
-    "name": "драма",
-    "slug": "drama"
+    name: "драма",
+    slug: "drama",
   },
   {
-    "name": "игра",
-    "slug": "igra"
+    name: "игра",
+    slug: "igra",
   },
   {
-    "name": "история",
-    "slug": "istoriya"
+    name: "история",
+    slug: "istoriya",
   },
   {
-    "name": "комедия",
-    "slug": "komediya"
+    name: "комедия",
+    slug: "komediya",
   },
   {
-    "name": "концерт",
-    "slug": "koncert"
+    name: "концерт",
+    slug: "koncert",
   },
   {
-    "name": "короткометражка",
-    "slug": "korotkometrazhka"
+    name: "короткометражка",
+    slug: "korotkometrazhka",
   },
   {
-    "name": "криминал",
-    "slug": "kriminal"
+    name: "криминал",
+    slug: "kriminal",
   },
   {
-    "name": "мелодрама",
-    "slug": "melodrama"
+    name: "мелодрама",
+    slug: "melodrama",
   },
   {
-    "name": "музыка",
-    "slug": "muzyka"
+    name: "музыка",
+    slug: "muzyka",
   },
   {
-    "name": "мультфильм",
-    "slug": "multfilm"
+    name: "мультфильм",
+    slug: "multfilm",
   },
   {
-    "name": "мюзикл",
-    "slug": "myuzikl"
+    name: "мюзикл",
+    slug: "myuzikl",
   },
   {
-    "name": "новости",
-    "slug": "novosti"
+    name: "новости",
+    slug: "novosti",
   },
   {
-    "name": "приключения",
-    "slug": "priklyucheniya"
+    name: "приключения",
+    slug: "priklyucheniya",
   },
   {
-    "name": "реальное ТВ",
-    "slug": "realnoe-TV"
+    name: "реальное ТВ",
+    slug: "realnoe-TV",
   },
   {
-    "name": "семейный",
-    "slug": "semeynyy"
+    name: "семейный",
+    slug: "semeynyy",
   },
   {
-    "name": "спорт",
-    "slug": "sport"
+    name: "спорт",
+    slug: "sport",
   },
   {
-    "name": "ток-шоу",
-    "slug": "tok-shou"
+    name: "ток-шоу",
+    slug: "tok-shou",
   },
   {
-    "name": "триллер",
-    "slug": "triller"
+    name: "триллер",
+    slug: "triller",
   },
   {
-    "name": "ужасы",
-    "slug": "uzhasy"
+    name: "ужасы",
+    slug: "uzhasy",
   },
   {
-    "name": "фантастика",
-    "slug": "fantastika"
+    name: "фантастика",
+    slug: "fantastika",
   },
   {
-    "name": "фильм-нуар",
-    "slug": "film-nuar"
+    name: "фильм-нуар",
+    slug: "film-nuar",
   },
   {
-    "name": "фэнтези",
-    "slug": "fentezi"
+    name: "фэнтези",
+    slug: "fentezi",
   },
   {
-    "name": "церемония",
-    "slug": "ceremoniya"
-  }
-] as const // 32
-export const genresNames = genres.map(genreObject => genreObject.name)
+    name: "церемония",
+    slug: "ceremoniya",
+  },
+] as const; // 32
+export const genresNames = genres.map((genreObject) => genreObject.name);
 
-export type GenreName = (typeof genres)[number]['name']
+export type GenreName = (typeof genres)[number]["name"];
 
 const ratingNumber = z.number().min(0).max(9.9);
 const CURRENT_YEAR = new Date().getFullYear();
@@ -140,23 +140,23 @@ const yearNum = z.number().int().min(1950).max(CURRENT_YEAR);
 
 const RatingRangeTuple = z
   .tuple([ratingNumber, ratingNumber])
-  .refine(([min, max]) => min <= max, { message: 'min ≤ max' });
+  .refine(([min, max]) => min <= max, { message: "min ≤ max" });
 
 const YearRangeTuple = z
   .tuple([yearNum, yearNum])
-  .refine(([min, max]) => min <= max, { message: 'min ≤ max' });
+  .refine(([min, max]) => min <= max, { message: "min ≤ max" });
 
 const GenreNameSchema = z.enum(genresNames);
 
-const GenreFilterSchema = z.object({
-  include: z.array(GenreNameSchema),
-  exclude: z.array(GenreNameSchema),
-})
-.refine(
-  ({ include, exclude }) =>
-    include.every(g => !exclude.includes(g)),
-  { message: 'Жанр не может одновременно включаться и исключаться' }
-);
+const GenreFilterSchema = z
+  .object({
+    include: z.array(GenreNameSchema),
+    exclude: z.array(GenreNameSchema),
+  })
+  .refine(
+    ({ include, exclude }) => include.every((g) => !exclude.includes(g)),
+    { message: "Жанр не может одновременно включаться и исключаться" },
+  );
 
 export interface GenreFilter {
   include: GenreName[];

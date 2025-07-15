@@ -1,9 +1,9 @@
-import { GlobalError } from '@/shared/config/ErrorElement/GlobalError';
-import { favoritesRoute } from '@/pages/favorites/route';
-import { movieDetailRoute } from '@/pages/movie-detail/route';
-import { moviesListRoute } from '@/pages/movies-list/route';
-import { Header } from '@/widgets/header';
-import { Navigate, Outlet, type RouteObject } from 'react-router-dom';
+import { GlobalError } from "@/shared/config/ErrorElement/GlobalError";
+import { favoritesRoute } from "@/pages/favorites/route";
+import { movieDetailRoute } from "@/pages/movie-detail/route";
+import { moviesListRoute } from "@/pages/movies-list/route";
+import { Header } from "@/widgets/header";
+import { Navigate, Outlet, type RouteObject } from "react-router-dom";
 
 const Layout = () => (
   <>
@@ -15,13 +15,13 @@ const Layout = () => (
 const defaultRoute: RouteObject = {
   index: true,
 
-  element: <Navigate to={"/movies"} replace/>
-}
+  element: <Navigate to={"/movies"} replace />,
+};
 
 export const routeConfig: RouteObject[] = [
   {
     element: <Layout />,
-    errorElement: <GlobalError/>,
+    errorElement: <GlobalError />,
     children: [moviesListRoute, movieDetailRoute, favoritesRoute, defaultRoute],
   },
 ];

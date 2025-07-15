@@ -3,7 +3,6 @@
 // import { create } from 'zustand'
 // import { persist } from 'zustand/middleware'
 
-
 // interface FiltersStore {
 //   filters: MoviesFilter,
 //   settedFrom: 'store' | 'params',
@@ -25,12 +24,12 @@
 //           settedFrom: 'store',
 //         })),
 
-//       setFromParams:  (params: URLSearchParams) => 
+//       setFromParams:  (params: URLSearchParams) =>
 //         set(() => ({
 //           filters: searchParamsToFilters(params),
 //           settedFrom: 'params'
 //         })),
-//       patchFilters: <TKey extends keyof MoviesFilter>(key: TKey, value: MoviesFilter[TKey]) => 
+//       patchFilters: <TKey extends keyof MoviesFilter>(key: TKey, value: MoviesFilter[TKey]) =>
 //         set((state) => ({
 //             filters: {
 //                 ...state.filters,
@@ -41,10 +40,10 @@
 //       clearFilters: () =>
 //         set(() => ({
 //             filters: {
-                
+
 //             }
 //         })),
-//       getFilters: () => 
+//       getFilters: () =>
 //         get().filters
 //     }),
 //     {

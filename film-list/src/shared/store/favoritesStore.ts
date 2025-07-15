@@ -1,13 +1,12 @@
-import type { Movie } from '@/entities/movie/model/movie'
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-
+import type { Movie } from "@/entities/movie/model/movie";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface FavoritesStore {
-  favorites: Record<string, Movie>
-  addFavorite: (movie: Movie) => void
-  removeFavorite: (id: string) => void
-  isFavorite: (id: string) => boolean
+  favorites: Record<string, Movie>;
+  addFavorite: (movie: Movie) => void;
+  removeFavorite: (id: string) => void;
+  isFavorite: (id: string) => boolean;
 }
 
 export const useFavoritesStore = create<FavoritesStore>()(
@@ -23,16 +22,16 @@ export const useFavoritesStore = create<FavoritesStore>()(
         })),
       removeFavorite: (id) =>
         set((state) => {
-          const newFavorites = { ...state.favorites }
-          delete newFavorites[id]
-          return { favorites: newFavorites }
+          const newFavorites = { ...state.favorites };
+          delete newFavorites[id];
+          return { favorites: newFavorites };
         }),
       isFavorite: (id) => !!get().favorites[id],
     }),
     {
-      name: 'favorite-movies',
-    }
-  )
-)
+      name: "favorite-movies",
+    },
+  ),
+);
 
-export const getScrollState = () => {}
+export const getScrollState = () => {};

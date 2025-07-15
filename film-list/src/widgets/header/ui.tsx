@@ -1,16 +1,15 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Tabs, Tab, AppBar, Toolbar } from '@mui/material';
+import { useLocation, useNavigate } from "react-router-dom";
+import { Tabs, Tab, AppBar, Toolbar } from "@mui/material";
 
 export function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
   // Определяем индекс активной вкладки по текущему пути
-  const currentTab = location.pathname === '/favorites' ? 1 : 0;
+  const currentTab = location.pathname === "/favorites" ? 1 : 0;
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-
-    const searh = location.search
+    const searh = location.search;
 
     if (newValue === 0) navigate(`/movies${searh}`);
     else if (newValue === 1) navigate(`/favorites${searh}`);
@@ -25,10 +24,10 @@ export function Header() {
           textColor="primary"
           indicatorColor="primary"
           variant="fullWidth"
-          sx={{flexGrow: 1}}
+          sx={{ flexGrow: 1 }}
         >
           <Tab label="Поиск" />
-          <Tab label="Избранное"/>
+          <Tab label="Избранное" />
         </Tabs>
       </Toolbar>
     </AppBar>

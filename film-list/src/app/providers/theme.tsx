@@ -1,41 +1,41 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import type { ReactNode } from 'react';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import type { ReactNode } from "react";
 
 export const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#90caf9',
+      main: "#90caf9",
     },
     secondary: {
-      main: '#f48fb1',
+      main: "#f48fb1",
     },
     background: {
-      default: '#121212',
-      paper: '#1e1e1e',
+      default: "#121212",
+      paper: "#1e1e1e",
     },
     text: {
-      primary: '#ffffff',
-      secondary: '#b0b0b0',
+      primary: "#ffffff",
+      secondary: "#b0b0b0",
     },
     error: {
-      main: '#ef5350',
+      main: "#ef5350",
     },
     warning: {
-      main: '#ffa726',
+      main: "#ffa726",
     },
     info: {
-      main: '#64b5f6',
+      main: "#64b5f6",
     },
     success: {
-      main: '#81c784',
+      main: "#81c784",
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none',
+          textTransform: "none",
           borderRadius: 8,
         },
       },
@@ -43,7 +43,7 @@ export const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
+          backgroundImage: "none",
         },
       },
     },
@@ -56,4 +56,6 @@ export const theme = createTheme({
   },
 });
 
-export const MUIThemeProvider = ({ children }: { children: ReactNode }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>
+export const MUIThemeProvider = ({ children }: { children: ReactNode }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);

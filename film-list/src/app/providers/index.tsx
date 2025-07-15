@@ -1,13 +1,12 @@
-import { QueryProvider } from './query';
-import { AppRouter } from './router';
-import { MUIThemeProvider } from './theme';
+import { QueryProvider } from "./query";
+import { AppRouter } from "./router";
+import { MUIThemeProvider } from "./theme";
 
 export const AppProviders = () => {
   return (
     <MUIThemeProvider>
       <QueryProvider>
-          <AppRouter>
-          </AppRouter>
+        <AppRouter></AppRouter>
       </QueryProvider>
     </MUIThemeProvider>
   );
