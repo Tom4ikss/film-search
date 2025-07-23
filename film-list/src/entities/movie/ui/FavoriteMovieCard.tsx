@@ -1,5 +1,5 @@
 import type { Movie } from "../model/movie";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Box,
   Grid,
@@ -12,7 +12,7 @@ import {
 import { FavoriteButton } from "@/widgets/favorite-button/ui";
 
 export const FavoriteMovieCard = ({ movie }: { movie: Movie }) => {
-  const location = useLocation();
+  
 
   return (
     <Grid key={movie.id} size={{ xs: 6, md: 3 }} sx={{ minWidth: "300px" }}>
@@ -22,7 +22,7 @@ export const FavoriteMovieCard = ({ movie }: { movie: Movie }) => {
       >
         <Box
           component={Link}
-          to={`/movies/${movie.id}${location.search}`}
+          to={`/movies/${movie.id}`}
           sx={{ textDecoration: "none" }}
         >
           <CardMedia

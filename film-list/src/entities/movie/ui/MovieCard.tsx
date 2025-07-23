@@ -1,4 +1,4 @@
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Card,
   CardActionArea,
@@ -11,7 +11,7 @@ import type { Movie } from "../model/movie";
 import { FavoriteButton } from "@/widgets/favorite-button/ui";
 
 export const MovieCard = ({ movie }: { movie: Movie }) => {
-  const location = useLocation();
+
 
   return (
     <Card
@@ -26,7 +26,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
     >
       <CardActionArea
         component={RouterLink}
-        to={`/movies/${movie.id}${location.search}`}
+        to={`/movies/${movie.id}`}
         sx={{
           display: "flex",
           gap: 2,

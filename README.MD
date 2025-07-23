@@ -1,5 +1,9 @@
 # Movies Search
 
+## Что нового
+
+Сохранение параметров в localstorage черз хук useRememberSearchParams
+
 ## Установка
 
 git clone https://github.com/Tom4ikss/film-search
