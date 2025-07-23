@@ -1,8 +1,8 @@
 import { fetchMovies, type InfiniteMovies } from "@/shared/api/movies";
 import type { MoviesFilter } from "@/entities/movie/model/movie";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import type { MoviesData } from "@/entities/movie/model/movieData";
+import { useMemo, useState } from "react";
+import { MoviesData } from "@/entities/movie/model/movieData";
 import type { ListOnItemsRenderedProps } from "react-window";
 
 const FETCH_NEXT_PAGE_GAP = 30;
@@ -24,13 +24,17 @@ export const useInfiniteMovies = (filters: MoviesFilter, initialPage = 1) => {
   });
 
   const {
+    data,
     hasNextPage,
     hasPreviousPage,
     fetchNextPage,
     fetchPreviousPage,
     isFetchingNextPage,
     isFetchingPreviousPage,
+    isLoading,
   } = infiniteQueryResult;
+
+  const moviesData = useMemo(() => new MoviesData(data), [data]);
 
   const handelRender = (
     props: ListOnItemsRenderedProps,
@@ -63,5 +67,5 @@ export const useInfiniteMovies = (filters: MoviesFilter, initialPage = 1) => {
     }
   };
 
-  return { ...infiniteQueryResult, currentPage, handelRender };
+  return { moviesData, currentPage, isLoading, handelRender };
 };

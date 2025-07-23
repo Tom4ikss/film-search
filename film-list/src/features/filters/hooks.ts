@@ -4,7 +4,7 @@ import {
   type GenreName,
   type MoviesFilter,
 } from "@/entities/movie/model/movie";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
 function parseGenres(raw: string[]): {

@@ -9,10 +9,8 @@ export function Header() {
   const currentTab = location.pathname === "/favorites" ? 1 : 0;
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    const searh = location.search;
-
-    if (newValue === 0) navigate(`/movies${searh}`);
-    else if (newValue === 1) navigate(`/favorites${searh}`);
+    if (newValue === 0) navigate(`/movies${location.search}`);
+    else if (newValue === 1) navigate(`/favorites${location.search}`);
   };
 
   return (

@@ -16,6 +16,7 @@ const queryClient = new QueryClient({
       gcTime: 60_1000 * 10,
       staleTime: 60_1000,
       retry: 1,
+      experimental_prefetchInRender: true,
     },
   },
 });

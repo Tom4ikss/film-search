@@ -15,7 +15,7 @@ export const FavoriteMovieCard = ({ movie }: { movie: Movie }) => {
   const location = useLocation();
 
   return (
-    <Grid key={movie.id} size={{ xs: 6, md: 3 }}>
+    <Grid key={movie.id} size={{ xs: 6, md: 3 }} sx={{ minWidth: "300px" }}>
       <Card
         elevation={3}
         sx={{ height: "100%", display: "flex", flexDirection: "column" }}
@@ -23,13 +23,13 @@ export const FavoriteMovieCard = ({ movie }: { movie: Movie }) => {
         <Box
           component={Link}
           to={`/movies/${movie.id}${location.search}`}
-          sx={{ textDecoration: "none", flexGrow: 1 }}
+          sx={{ textDecoration: "none" }}
         >
           <CardMedia
             component="img"
             image={movie.poster.url}
             alt={movie.name}
-            sx={{ objectFit: "cover", height: "380px" }}
+            sx={{ objectFit: "cover", objectPosition: "top", height: "30em" }}
           />
 
           <CardContent sx={{ pb: 1.5 }}>

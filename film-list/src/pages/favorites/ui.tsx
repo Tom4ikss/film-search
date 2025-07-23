@@ -6,7 +6,7 @@ export const FavoritesPage = () => {
   const movies = Object.values(useFavoritesStore((s) => s.favorites));
 
   return (
-    <Paper elevation={0} sx={{ p: 4, mt: -5 }}>
+    <Paper elevation={0} sx={{ p: 4, mt: -5, minHeight: "100vh" }}>
       {movies.length === 0 ? (
         <Typography
           variant="h4"
